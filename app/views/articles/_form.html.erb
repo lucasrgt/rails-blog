@@ -1,0 +1,28 @@
+<%= form_with model: custom_form do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <ul>
+    <% custom_form.errors.full_messages_for(:title).each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+    <% custom_form.errors.full_messages_for(:body).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+  
+<% end %>
